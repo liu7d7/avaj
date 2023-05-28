@@ -1,0 +1,114 @@
+fun variable_initialization()
+  var a: int <- 1
+  var b: string <- "hello!"
+  print(string(a) + " " + b)
+end
+
+print("variable initialization")
+variable_initialization()
+print("")
+
+fun math_operations()
+  var a: int <- 1
+  a <- (1 + 5 * 4) / 3 % 2
+  // expect a == 1
+  print("a == " + string(a))
+
+  var b: string <- "Adding strings "
+  b <- b + "works well!"
+  print("b == \"" + b + "\"")
+end
+
+print("math operations")
+math_operations()
+print("")
+
+fun if_statements()
+  var a: int <- 3
+  if a > 1 then
+    print("a > 1")
+  else
+    print("a <= 1")
+  end
+
+  if a % 2 == 1 then
+    print("a % 2 == 1")
+  end
+
+  var b: string <- "hello!"
+  if b == "he" + "llo!" then
+    print("b == \"he\" + \"llo!\"")
+  end
+end
+
+print("if statements")
+if_statements()
+print("")
+
+fun no_they_are_expressions()
+  var a: string <- if 5 % 3 == 2 then "5 % 3 == 2" else "5 % 3 != 2" end
+  print(a)
+end
+
+print("if statements are actually expressions")
+no_they_are_expressions()
+print("")
+
+fun for_loops()
+  // before each iteration, the block between the for and do is executed.
+  // if the block evaluates to true, then the for loop continues; otherwise it breaks.
+  var i: int <- 0
+  for i < 3 do
+    print(i)
+    i <- i + 1
+  end
+end
+
+print("for loops")
+for_loops()
+print("")
+
+fun overload(value: int)
+  print("This is an integer: " + string(value))
+end
+
+fun overload(value: string)
+  print("This is a string: " + value)
+end
+
+fun test_overloads()
+  overload("hello")
+  overload(1)
+end
+
+print("overloading functions")
+test_overloads()
+print("")
+
+fun fib(a: int)
+  if a <= 1 then
+    1
+  else
+    fib(a - 1) + fib(a - 2)
+  end
+end
+
+fun recursion()
+  print("fib(5) == " + string(fib(5))) // 1 1 2 3 5 8; expect 8
+end
+
+print("recursion")
+recursion()
+print("")
+
+fun nested_function()
+  fun nested()
+    print("i'm nested!")
+  end
+
+  nested()
+end
+
+print("nested functions")
+nested_function()
+print("")
